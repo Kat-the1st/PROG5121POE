@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        // Stored user details (like a chat account)
+        String savedUsername = "kyl_1";
+        String savedPassword = "Ch&&sec@ke99!";
+        String savedPhone = "+27838968976";
+
+        // Ask user for login details
+        System.out.print("Enter username: ");
+        String username = input.nextLine();
+
+        System.out.print("Enter password: ");
+        String password = input.nextLine();
+
+        System.out.print("Enter phone number (e.g. 082...): ");
+        String phone = input.nextLine();
+
+        // Convert to international format
+        String internationalPhone = "+27" + phone.substring(1);
+
+        // Check login
+        if (username.equals(savedUsername) &&
+            password.equals(savedPassword) &&
+            internationalPhone.equals(savedPhone)) {
+
+            System.out.println("Login successful!");
+            System.out.println("Welcome " + username );
+
+         }else{
+            boolean valid = true;
+
+if (!username.equals(savedUsername)) {
+    System.out.println(" Incorrect username");
+    valid = false;
+}
+
+if (!password.equals(savedPassword)) {
+    System.out.println(" Incorrect password");
+    valid = false;
+}
+
+if (!internationalPhone.equals(savedPhone)) {
+    System.out.println(" Incorrect phone number");
+    valid = false;
+}
+
+if (valid) {
+    System.out.println(" Login successful!");
+    System.out.println("Welcome " + username + );
+}
+        }
+
+        input.close();
+    }
+}
